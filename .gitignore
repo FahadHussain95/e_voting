@@ -14,5 +14,6 @@ robots.txt
 staticfiles/
 e_voting/local_settings.py
 __pycache__
+requirements.txt
 
-https://github.com/FahadHussain95/e_voting.git
+
