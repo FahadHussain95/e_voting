@@ -15,5 +15,6 @@ staticfiles/
 e_voting/local_settings.py
 __pycache__
 requirements.txt
+db.sqlite3
 
 
