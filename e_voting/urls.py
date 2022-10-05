@@ -16,7 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from site_content.views import LandingView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-   # path('site_content/', include('site_content.urls'))
+    #path('site_content/', include('site_content.urls'))
+    path('landing-page/', LandingView.as_view(), name='landing-page'),
 ]
