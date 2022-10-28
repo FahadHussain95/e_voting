@@ -1,11 +1,12 @@
-from django.shortcuts import render
-from django.views.generic import View
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
 
-# Create your views here.
+class HelloView(APIView):
+    permission_classes = (IsAuthenticated,)
 
-class LandingView(View):
-    template_name = 'landing_page.html'
     def get(self, request):
-        return render(request, self.template_name)
+        content = {'message': 'Hello, World!'}
+        return Response(content)
 

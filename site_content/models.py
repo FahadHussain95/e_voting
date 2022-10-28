@@ -2,7 +2,6 @@ from django.db import models
 
 # Create your models here.
 
-
 class Voters(models.Model):
     voter_name = models.CharField(max_length=50, verbose_name='Voter Name')
     voter_nic = models.CharField(max_length=500, verbose_name='Voter NIC Number', db_index=True, null=False, blank=False)

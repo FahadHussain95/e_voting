@@ -15,11 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from dj_rest_auth.views import PasswordResetView, PasswordResetConfirmView
 
-from site_content.views import LandingView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #path('site_content/', include('site_content.urls'))
-    path('landing-page/', LandingView.as_view(), name='landing-page'),
+    path('', include('site_content.urls')),
+    path('user/', include('user_management.urls')),
+
+    path('password-reset/', PasswordResetView.as_view()),
+    path('password-reset-confirm/<uidb64>/<token>/', PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
 ]
