@@ -1,20 +1,12 @@
-<link rel="stylesheet" type="text/css" href="./Landingpage.css"/>
-</head>
-<body>
-    <nav>
-        <div class="container">
-                <img src="Logo.drawio (1).png">
-                <input type="checkbox" id="showNav">
-                <label for="showNav" id="toggleNav"><i class="fas fa-bars"></i></label>
-            <ul>
-                <li><a href="#" class="active">Home</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
 
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/landing_page.css' %}"/>
+{% endblock css %}
+
+{% block content %}
     <section>
         <div class="container">
             <p>"Our political leaders will know our priorities only
@@ -22,7 +14,24 @@
                 priorities begin to show up in the polls."
             </p>
             <h1>Vote For Pakistan </h1>
+{#            {{ content }}#}
 
-            <a class="sign-in" href="#">sign in</a>
+            <div class="row no-gutters">
+                <div class="col-lg-5 col-md-5 col-12">
+                    <form method="post" action="{% url 'account_logout' %}">
+                      {% csrf_token %}
+                      {% if redirect_field_value %}
+                        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+                      {% endif %}
+                        <button class="btn btn-info btn-lg" type="submit">
+                            <span class="glyphicon glyphicon-log-out"></span>Logout
+                        </button>
+                    </form>
+                </div>
+                <div class="col-lg-7 col-md-7 col-12">
+                    <a id="one" href="candidates">Vote</a>
+                </div>
+            </div>
         </div>
     </section>
+{% endblock %}
