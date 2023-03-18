@@ -5,10 +5,11 @@ cffi==1.15.1
 charset-normalizer==2.1.1
 cryptography==38.0.1
 defusedxml==0.7.1
-dj-rest-auth==2.2.5
+#dj-rest-auth==2.2.5
 Django==4.1.1
 django-allauth==0.51.0
 djangorestframework==3.14.0
+djangorestframework-simplejwt==5.2.2
 idna==3.4
 mysql-connector-python==8.0.31
 mysqlclient==2.1.1

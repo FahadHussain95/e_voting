@@ -39,14 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'site_content',
     'rest_framework',
-    'rest_framework.authtoken',
-    'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'dj_rest_auth',
-    'dj_rest_auth.registration',
     'user_management',
+    # 'debug_toolbar'
 ]
 
 MIDDLEWARE = [
@@ -57,8 +54,13 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'debug_toolbar.middleware.DebugToolbarMiddleware'
 ]
-
+# INTERNAL_IPS = [
+#     # ...
+#     "127.0.0.1",
+#     # ...
+# ]
 ROOT_URLCONF = 'e_voting.urls'
 
 TEMPLATES = [
@@ -77,23 +79,27 @@ TEMPLATES = [
     },
 ]
 
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'dj_rest_auth.jwt_auth.JWTCookieAuthentication',
-    ],
-}
-REST_USE_JWT = True
-JWT_AUTH_COOKIE = 'e_voting-auth'
+# REST_FRAMEWORK = {
+#     'DEFAULT_AUTHENTICATION_CLASSES': [
+#         'dj_rest_auth.jwt_auth.JWTCookieAuthentication',
+#     ],
+# }
+#
+# REST_USE_JWT = True
+# JWT_AUTH_COOKIE = 'e_voting-auth'
 
 AUTHENTICATION_BACKENDS = [
-    'allauth.account.auth_backends.AuthenticationBackend',
     'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_CONFIRM_EMAIL_ON_GET = True
+
+
+# REST_SESSION_LOGIN = True
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
@@ -102,7 +108,9 @@ EMAIL_HOST_USER = 'mariaakhtar358@gmail.com'
 EMAIL_HOST_PASSWORD = 'ozwnewzjpufqdzyh'
 EMAIL_PORT = 587
 
-LOGIN_URL = 'http://localhost:8006/users/login'
+# LOGIN_URL = '/admin/'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/accounts/login'
 
 WSGI_APPLICATION = 'e_voting.wsgi.application'
 
@@ -117,16 +125,11 @@ DATABASES = {
     }
 }
 SITE_ID = 1
-# Database
-# https://docs.djangoproject.com/en/4.1/ref/settings/#databases
+# AUTH_USER_MODEL = 'user_management.CustomUser'
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': BASE_DIR / 'db.sqlite3',
-#    }
-#}
-
+# ACCOUNT_FORMS = {
+#     'signup': 'user_management.forms.CustomSignupForm',
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -146,10 +149,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-#TEMPLATE_DIRS = (
-#    join(BASE_DIR, 'templates')
-#)
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
@@ -161,6 +160,8 @@ USE_I18N = True
 
 USE_TZ = True
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
