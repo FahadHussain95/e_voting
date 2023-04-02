@@ -6,48 +6,61 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/show_candidates.css' %}"/>
 {% endblock css %}
 
+{% block title %}
+    Online Voting System - Voter Page
+{% endblock title %}
+
 {% block content %}
     {% block navbar %}
     {% endblock navbar%}
-    <form class="mt-4 mx-4 text-right no-gutters" method="post" action="{% url 'account_logout' %}">
-      {% csrf_token %}
-      {% if redirect_field_value %}
-        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-      {% endif %}
-        <button class="btn btn-info btn-lg" type="submit">
-            <span class="glyphicon glyphicon-log-out"></span>Logout
-        </button>
-    </form>
-    <section>
-        <div class="container">
-            <h1>Vote For Pakistan </h1>
-{#            <div class="candidate-box justify-content-around no-gutters row text-left">#}
-            <div class="row">
-                {% for candidate in candidates %}
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img class="card-img-top" src="{{ candidate.candidate_picture }}" alt="{{ candidate.candidate_name }}"
-                            width="200" height="400">
-                            <div class="card-body" style="color: black;">
-                                <h5 class="card-title candidate-name">{{ candidate.candidate_name }}</h5>
-                                <p class="card-text">{{ candidate.candidate_party.party_name }}</p>
-                                <p class="card-text"><span>Vote Count: </span>{{ candidate.vote_count|default:0 }}</p>
-                                    <form method="post" action="{% url 'vote' %}">
-                                        {% csrf_token %}
-                                        {% if candidate.is_active %}
-                                            <input type="submit" class="btn btn-primary" placeholder="Vote" value="Vote">
-                                        {% else %}
-                                            <input type="submit" class="btn btn-primary" value="Vote" disabled>
-                                        {% endif %}
-                                        <input type="hidden" value="{{ candidate.id }}" name="candidate_id">
-                                        <input type="hidden" value="{{ candidate.candidate_party.party_name }}" name="party_name">
-                                        <input type="hidden" value="{{ candidate.vote_count }}" name="vote_count">
-                                    </form>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
+        <div id="header">
+            <h1>Voter Dashboard</h1>
+            <form method="post" action="{% url 'account_logout' %}">
+                {% csrf_token %}
+                {% if redirect_field_value %}
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+                {% endif %}
+                <input type="submit" value="Logout">
+            </form>
         </div>
-    </section>
+    <div id="main" class="justify-content-around">
+        {% for candidate in candidates %}
+            <div id="card">
+                <div class="w-100 text-center"><h2>Candidate Profile</h2></div>
+                <img class="card-img-top" src="{{ candidate.candidate_picture }}" alt="{{ candidate.candidate_name }}"
+                    width="200" height="400">
+                <div class="info-section mt-4">
+                    <p><span class="font-weight-bold">Name</span>: {{ candidate.candidate_name }}</p>
+                    <hr class="m-0" />
+                    <p><span class="font-weight-bold">Party</span>: {{ candidate.candidate_party.party_name }}</p>
+                    <hr class="m-0" />
+                    <p><span class="font-weight-bold">Email</span>: {{ candidate.candidate_email }}</p>
+                    <hr class="m-0" />
+                    <p><span class="font-weight-bold">Contact</span>: {{ candidate.phone_number }}</p>
+                    <hr class="m-0" />
+                    <p><span class="font-weight-bold">City</span>: {{ candidate.candidate_city }}</p>
+                    <hr class="m-0" />
+                    <p><span class="font-weight-bold">State</span>: {{ candidate.candidate_state }}</p>
+                    <hr class="m-0" />
+                    <p><span class="font-weight-bold">Area Code</span>: {{ candidate.candidate_area_code }}</p>
+                    <hr class="m-0" />
+                    <p><span class="font-weight-bold">Vote Count</span>: {{ candidate.vote_count|default:0 }}</p>
+                </div>
+                <div class="w-100 text-center">
+                    <form method="post" action="{% url 'vote' %}">
+                        {% csrf_token %}
+                        {% if candidate.is_active %}
+                            <input type="submit" class="btn btn-primary w-50" placeholder="Vote" value="Vote">
+                        {% else %}
+                            <input type="submit" class="btn btn-primary" value="Vote" disabled>
+                        {% endif %}
+                        <input type="hidden" value="{{ candidate.id }}" name="candidate_id">
+                        <input type="hidden" value="{{ candidate.candidate_party.party_name }}" name="party_name">
+                        <input type="hidden" value="{{ candidate.vote_count }}" name="vote_count">
+                    </form>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
 {% endblock %}

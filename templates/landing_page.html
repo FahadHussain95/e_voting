@@ -7,31 +7,38 @@
 {% endblock css %}
 
 {% block content %}
-    <section>
-        <div class="container">
-            <p>"Our political leaders will know our priorities only
-                if we tell them, again and again, and if those
-                priorities begin to show up in the polls."
-            </p>
-            <h1>Vote For Pakistan </h1>
-{#            {{ content }}#}
+    {% block navbar %}
+    {% endblock navbar%}
+    <div id="header">
+        <h1>Voter Profile</h1>
+        <form method="post" action="{% url 'account_logout' %}">
+            {% csrf_token %}
+            {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+            {% endif %}
+            <input type="submit" value="Logout">
+        </form>
+    </div>
+    <div id="main">
+      <div id="card">
+        <h2>My Profile</h2>
+        <p>Name: {{ request.user.username }}</p>
+        <p>Email: {{ request.user.email }}</p>
+          <div class="col-12 d-flex p-0">
+{#            <a class="col-6 text-left p-0" href="#">Edit Profile</a>#}
+            <form class="text-right p-0">
+                <a id="one" href="/site/candidates">Vote</a>
+            </form>
+          </div>
+      </div>
 
-            <div class="row no-gutters">
-                <div class="col-lg-5 col-md-5 col-12">
-                    <form method="post" action="{% url 'account_logout' %}">
-                      {% csrf_token %}
-                      {% if redirect_field_value %}
-                        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-                      {% endif %}
-                        <button class="btn btn-info btn-lg" type="submit">
-                            <span class="glyphicon glyphicon-log-out"></span>Logout
-                        </button>
-                    </form>
-                </div>
-                <div class="col-lg-7 col-md-7 col-12">
-                    <a id="one" href="candidates">Vote</a>
-                </div>
-            </div>
-        </div>
-    </section>
+      <div id="card">
+        <h2>My Voting History</h2>
+        <p>2018 General Election - Voted</p>
+        <p>2020 Primary Election - Voted</p>
+        <p>2020 General Election - Did not vote</p>
+      </div>
+
+
+    </div>
 {% endblock %}

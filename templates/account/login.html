@@ -5,6 +5,7 @@
 
 {% block css %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/sign_in.css' %}">
+{#    <link rel="stylesheet" type="text/css" href="{% static 'css/landing_page.css' %}"/>#}
 {% endblock css %}
 
 {% block title %}
@@ -22,7 +23,10 @@
             <div class="container-fluid h-custom">
               <div class="row d-flex justify-content-center align-items-center h-100 main-container">
                 <div class="col-md-9 col-lg-6 col-xl-5">
-                  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+{#                    <div>#}
+{#                        kwelhfkwanfklwefbwakejbvfiwkjfnweiobflkqdpfiqhwbfklqjndwipbqwkjfbvquwhb#}
+{#                    </div>#}
+                  <img src="{% static '/img/1.png' %}"
                     class="img-fluid" alt="Sample image">
                 </div>
                 <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
@@ -74,7 +78,7 @@
 
 {#                    {% else %}#}
                         <p>If you have not created an account yet, then please
-                            <a href="{{ signup_url }}">Sign Up</a> first.
+                            <a class="sign-up-btn" href="{{ signup_url }}">Sign Up</a> first.
                         </p>
 {#                    {% endif %}#}
                 </div>

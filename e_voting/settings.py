@@ -87,7 +87,6 @@ TEMPLATES = [
 #
 # REST_USE_JWT = True
 # JWT_AUTH_COOKIE = 'e_voting-auth'
-
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
@@ -109,15 +108,19 @@ EMAIL_HOST_PASSWORD = 'ozwnewzjpufqdzyh'
 EMAIL_PORT = 587
 
 # LOGIN_URL = '/admin/'
+AUTH_USER_MODEL = 'user_management.CustomUser'
+
 LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/accounts/login'
+LOGOUT_REDIRECT_URL = '/user/login'
+
+# ACCOUNT_SIGNUP_FORM_CLASS = 'user_management.forms.CustomSignupForm'
 
 WSGI_APPLICATION = 'e_voting.wsgi.application'
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'e-voting',
+        'NAME': 'e2-voting',
         'USER': 'root',
         'PASSWORD': 'root',
         'HOST': '127.0.0.1',
@@ -127,9 +130,9 @@ DATABASES = {
 SITE_ID = 1
 # AUTH_USER_MODEL = 'user_management.CustomUser'
 
-# ACCOUNT_FORMS = {
-#     'signup': 'user_management.forms.CustomSignupForm',
-# }
+ACCOUNT_FORMS = {
+    'signup': 'user_management.forms.CustomSignupForm'
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
