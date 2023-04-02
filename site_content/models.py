@@ -35,6 +35,8 @@ class Candidate(models.Model):
                                         null=True)
     candidate_email = models.EmailField(verbose_name='Email', max_length=255, null=True, blank=True, unique=True)
     candidate_nic = models.CharField(max_length=500, verbose_name='Candidate NIC Number', db_index=True, null=False, blank=False)
+    candidate_city = models.CharField(max_length=500, verbose_name='Candidate City', null=False, blank=False, default="N/A")
+    candidate_state = models.CharField(max_length=500, verbose_name='Candidate State', null=False, blank=False, default="N/A")
     candidate_area_code = models.CharField(max_length=500, verbose_name='Candidate Area Code', db_index=True,
                                            null=False, blank=False, default=None)
     phone_number = models.CharField(verbose_name='Phone Number', max_length=500, null=True, blank=True)

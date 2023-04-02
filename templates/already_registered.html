@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thankyou</title>
+    <style>
+        body{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+<div id="header">
+    <h1>Voter Dashboard</h1>
+    <form method="post" action="{% url 'account_logout' %}">
+        {% csrf_token %}
+        {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+        {% endif %}
+        <input type="submit" value="Logout">
+    </form>
+</div>
+<div>
+    <h2>You have already voted, Thankyou.</h2>
+</div>
+</body>
+</html>
