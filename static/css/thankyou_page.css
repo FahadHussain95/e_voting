@@ -1,0 +1,25 @@
+body {
+    background-color: #1e521c;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    margin: 50px auto;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #84f06f;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 24px;
+    color: #666;
+    margin-bottom: 10px;
+}

@@ -11,7 +11,7 @@ class PartySerializer(serializers.ModelSerializer):
 
 class CandidateSerializer(serializers.ModelSerializer):
     candidate_party = PartySerializer(many=False, read_only=True)
+
     class Meta:
         model = Candidate
         fields = '__all__'
-        depth = 1

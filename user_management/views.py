@@ -8,4 +8,3 @@ from .forms import CustomSignupForm
 
 class CustomSignupView(SignupView):
     form_class = CustomSignupForm
-    # template_name = 'account/signup.html'

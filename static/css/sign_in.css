@@ -8,3 +8,11 @@ body{
     color: white;
     text-decoration: none;
 }
+
+/*.signup-container{*/
+/*    color: white;*/
+/*}*/
+.sign-up-btn{
+    color: black;
+    text-decoration: underline;
+}

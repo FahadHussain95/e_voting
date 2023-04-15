@@ -27,6 +27,13 @@ class HomeView(TemplateView):
         return super(HomeView, self).dispatch(*args, **kwargs)
 
 
+class LandingPage(TemplateView):
+    template_name = 'landing_page_1.html'
+
+    def dispatch(self, *args, **kwargs):
+        return super(LandingPage, self).dispatch(*args, **kwargs)
+
+
 class ShowCandidates(APIView):
     permission_classes = [IsAuthenticated]
     renderer_classes = [TemplateHTMLRenderer]
@@ -36,8 +43,9 @@ class ShowCandidates(APIView):
         candidate_obj = Candidate.objects.all()
         if len(candidate_obj) > 0:
             serialized_candidates = CandidateSerializer(candidate_obj, many=True)
-            if serialized_candidates:
-                return Response(data={'candidates': serialized_candidates.data}, status=status.HTTP_200_OK)
+            serialized_data = serialized_candidates.data
+            if serialized_data:
+                return Response(data={'candidates': serialized_data, 'has_voted': request.user.has_voted}, status=status.HTTP_200_OK)
         else:
             return HttpResponse(status=status.HTTP_401_UNAUTHORIZED)
 
@@ -56,7 +64,7 @@ class RegisterVote(APIView):
                 if candidate_obj:
                     candidate_obj.vote_count += 1
                     candidate_obj.save()
-                    user.is_active = False
+                    user.has_voted = True
                     user.save()
                     # serialized_candidates = CandidateSerializer(candidate_obj, many=True)
                     # if serialized_candidates:

@@ -18,14 +18,15 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 # from dj_rest_auth.views import PasswordResetView, PasswordResetConfirmView
-from site_content.views import HomeView
+from site_content.views import HomeView, LandingPage
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path('user/', include('user_management.urls')),
     path('user/', include('user_management.urls')),
     # path('accounts/signup/', CustomSignupView.as_view(), name='account_signup'),
-    path('', HomeView.as_view(), name='home'),
+    path('home/', HomeView.as_view(), name='home'),
+    path('', LandingPage.as_view(), name='home_1'),
     path('site/', include('site_content.urls')),
     # path('__debug__/', include('debug_toolbar.urls')),
 

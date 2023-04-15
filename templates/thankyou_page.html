@@ -1,27 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Thankyou</title>
-    <style>
-        body{
-            background-color: green;
-        }
-    </style>
-</head>
-<body>
-<div id="header">
-    <h1>Voter Dashboard</h1>
-    <form method="post" action="{% url 'account_logout' %}">
-        {% csrf_token %}
-        {% if redirect_field_value %}
-            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-        {% endif %}
-        <input type="submit" value="Logout">
-    </form>
-</div>
-<div>
-    <h2>Thankyou for Voting!</h2>
-</div>
-</body>
-</html>
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="thankyou_page.css">
+{% endblock css %}
+
+{% block title %}
+    Thank You For Voting
+{% endblock title %}
+
+
+{% block content %}
+    {% block navbar %}
+    {% endblock navbar %}
+    <div class="container">
+        <h1>Thank You For Voting!</h1>
+        <p>Your vote has been recorded. We appreciate your participation in this election.</p>
+        <p>Stay tuned for the results!</p>
+    </div>
+
+{#    <a class="sign-in" href="/user/login">Please LogIn to continue</a>#}
+{% endblock content%}

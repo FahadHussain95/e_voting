@@ -46,19 +46,20 @@
                     <hr class="m-0" />
                     <p><span class="font-weight-bold">Vote Count</span>: {{ candidate.vote_count|default:0 }}</p>
                 </div>
-                <div class="w-100 text-center">
-                    <form method="post" action="{% url 'vote' %}">
-                        {% csrf_token %}
-                        {% if candidate.is_active %}
-                            <input type="submit" class="btn btn-primary w-50" placeholder="Vote" value="Vote">
-                        {% else %}
-                            <input type="submit" class="btn btn-primary" value="Vote" disabled>
-                        {% endif %}
-                        <input type="hidden" value="{{ candidate.id }}" name="candidate_id">
-                        <input type="hidden" value="{{ candidate.candidate_party.party_name }}" name="party_name">
-                        <input type="hidden" value="{{ candidate.vote_count }}" name="vote_count">
-                    </form>
-                </div>
+
+                    <div class="w-100 text-center">
+                        <form method="post" action="{% url 'vote' %}">
+                            {% csrf_token %}
+                            {% if not has_voted %}
+                                <input type="submit" class="btn btn-primary w-50" placeholder="Vote" value="Vote">
+                            {% else %}
+                                <input type="submit" class="btn btn-primary" value="Vote" disabled>
+                            {% endif %}
+                            <input type="hidden" value="{{ candidate.id }}" name="candidate_id">
+                            <input type="hidden" value="{{ candidate.candidate_party.party_name }}" name="party_name">
+                            <input type="hidden" value="{{ candidate.vote_count }}" name="vote_count">
+                        </form>
+                    </div>
             </div>
         {% endfor %}
     </div>

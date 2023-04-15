@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/landing_page_1.css' %}"/>
+{% endblock css %}
+
+
+{% block title %}
+    Online Voting System - Landing Page
+{% endblock title %}
+
+{% block content %}
+    <section>
+        <div class="container">
+            <p>"Our political leaders will know our priorities only 
+                if we tell them, again and again, and if those 
+                priorities begin to show up in the polls."
+            </p>
+            <h1>Vote For Pakistan </h1>
+                
+            <a class="sign-in" href="/user/login">LogIn</a>
+            <a class="sign-in" href="/user/signup">Signup</a>
+
+        </div>
+    </section>
+{% endblock %}

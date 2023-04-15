@@ -107,10 +107,10 @@ EMAIL_HOST_USER = 'mariaakhtar358@gmail.com'
 EMAIL_HOST_PASSWORD = 'ozwnewzjpufqdzyh'
 EMAIL_PORT = 587
 
-# LOGIN_URL = '/admin/'
+# LOGIN_URL = ''
 AUTH_USER_MODEL = 'user_management.CustomUser'
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = 'http://127.0.0.1:8006/home/'
 LOGOUT_REDIRECT_URL = '/user/login'
 
 # ACCOUNT_SIGNUP_FORM_CLASS = 'user_management.forms.CustomSignupForm'
