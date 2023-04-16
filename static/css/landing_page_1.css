@@ -134,8 +134,8 @@
     /* margin: 0px auto; */
     margin-bottom: 3rem;
     text-align: left;
-    color: white;
-    margin-left: 5%;
+    color: black;
+    /*margin-left: 5%;*/
     /* letter-spacing: 0.06rem;
     font-size: 1rem;
     line-height: 1.7;
@@ -184,9 +184,9 @@
     );
   }
 
-  .sign-in{
-    margin-right: 38% !important;
-  }
+  /*.sign-in{*/
+  /*  margin-right: 38% !important;*/
+  /*}*/
 
   /* ======= MEDIA QUERY FOR SMALLER SCREENS ======= */
   @media screen and (max-width: 700px) {

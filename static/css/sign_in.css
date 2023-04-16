@@ -2,10 +2,11 @@
     margin-top: 80px;
 }
 body{
-    background: url("/static/img/voting-hands.jpeg");
+    /*background: url("/static/img/voting-hands.jpeg");*/
+    background-color: white;
 }
 .secondaryAction{
-    color: white;
+    color: darkgreen;
     text-decoration: none;
 }
 
@@ -13,6 +14,10 @@ body{
 /*    color: white;*/
 /*}*/
 .sign-up-btn{
-    color: black;
+    color: darkgreen;
     text-decoration: underline;
+}
+.signin-btn {
+    background-color: #023020;
+    border-color: #023020;
 }

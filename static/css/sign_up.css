@@ -1,10 +1,11 @@
 .bg-image{
-    background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');
-    background-size: cover !important;
-    background-attachment: fixed !important;
-    background-repeat: no-repeat !important;
-    height: 100% !important;
-    min-height: 100vh;
+    /*background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');*/
+    /*background-size: cover !important;*/
+    /*background-attachment: fixed !important;*/
+    /*background-repeat: no-repeat !important;*/
+    /*height: 100% !important;*/
+    /*min-height: 100vh;*/
+    background-color: white;
 }
 input{
     padding: 0.5rem 1rem;
@@ -22,4 +23,15 @@ input{
     border: 1px solid #ced4da;
     border-radius: 0.25rem;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.logo-img{
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-success {
+    color: #fff;
+    background-color: #023020;
+    border-color: #023020;
 }

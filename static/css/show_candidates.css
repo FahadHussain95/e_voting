@@ -1,60 +1,56 @@
 body {
-        background-image: url("/static/img/image2.jpg");
-        background-size: cover;
-        background-position: center center;
-        background-repeat: no-repeat;
+       background-color: #023020;
       }
-      #header {
-        /*background-color: #008000;*/
-        color: #ffffff;
-        padding: 20px;
-        text-align: center;
-      }
-      #main {
-        margin: 20px;
-        display: flex;
-        flex-wrap: wrap;
-      }
-      #card {
-        background-color: #ffffff;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.2);
-        margin-bottom: 20px;
-        padding: 20px;
-        width: calc(33% - 20px);
-      }
-      .info-section{
-          background-color: #ffffff;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.2);
-        margin-bottom: 20px;
-        padding: 20px;
-        /*width: calc(33% - 20px);*/
-      }
-      h1, h2 {
-        margin-top: 0;
-      }
-      ul {
-        margin: 0;
-        padding: 0;
-      }
-      li {
-        list-style-type: none;
-        margin-bottom: 10px;
-      }
-      a {
-        color: #008000;
-        text-decoration: none;
-      }
-      input[type="submit"] {
-        background-color: #008000;
-        border: none;
-        border-radius: 5px;
-        color: #ffffff;
-        cursor: pointer;
-        font-size: 16px;
-        padding: 10px;
-      }
-      input[type="submit"]:hover {
-        background-color: #006400;
-      }
+  #header {
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+  }
+  #main {
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  #card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    margin-bottom: 20px;
+    padding: 20px;
+    width: calc(33% - 20px);
+  }
+  .info-section{
+      background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    margin-bottom: 20px;
+    padding: 20px;
+    /*width: calc(33% - 20px);*/
+  }
+  h1, h2 {
+    margin-top: 0;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    list-style-type: none;
+    margin-bottom: 10px;
+  }
+  a {
+    color: #008000;
+    text-decoration: none;
+  }
+  input[type="submit"] {
+    background-color: #008000;
+    border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px;
+  }
+  input[type="submit"]:hover {
+    background-color: #006400;
+  }
